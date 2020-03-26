@@ -1,0 +1,33 @@
+<div class="container">
+  <h1>Listing Articles</h1>
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="#"><%= link_to 'New article', new_article_path %></a>
+  </nav>
+
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th>Title</th>
+        <th>Text</th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th colspan="6"></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @articles.each do |article| %>
+      <tr>
+        <td><%= article.title %></td>
+        <td><%= article.text %></td>
+        <td><%= link_to 'Show', article_path(article) %></td>
+        <td><%= link_to 'Edit', edit_article_path(article) %></td>
+        <td><%= link_to 'Destroy', article_path(article),
+                method: :delete,
+                data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+      <% end %>
+    
+    </tbody>
+  </table>
+</div>
